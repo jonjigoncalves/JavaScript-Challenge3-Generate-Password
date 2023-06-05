@@ -9,19 +9,55 @@ var specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', 
 
 var combined = lowercase.concat(uppercase).concat(numbers).concat(specialCharacters);
 // function for length
-function generatePassword(length){
-  var charList = combined
-  var password = ''; 
-// for loop to pull random charaters from the combined array created above
-// for loops has 3 parts, the firt is setting a index or count to 0, preventing an infinite loop b using the set index to one less than the length
-  for ( var index = 0; index < length; index++ ){
-    var randomIndex = Math.floor(Math.random() * charList.length);
-    var randomChar = charList[randomIndex];
-// is the += to add a value from randomchar (rightside) to the password var that is = to an empty string. so it should keep adding random chars until the index < legnth is proven falsey 
-    password += randomChar;
+function getUserInput (){  
+  var amount = Number(prompt('Please Provide an Amount'));
+  var includeLowercase = confirm('Click OK to include lowercase letters');
+  var includeUppercase = confirm('Click OK to include uppercase letters');
+  var includeSpecial = confirm ('Click ok to include special characters?');
+  var includeNumbers = confirm('click ok if you want numbers');
+
+  return [amount, includeLowercase, includeUppercase, includeSpecial, includeNumbers];
+}
+
+function generatePassword(){
+  var password = '';
+  var choices = getUserInput();
+  var includeLowercase = choices [1];
+  var includeUppercase = choices[2];
+  var includeSpecial = choices [3];
+  var includeNumbers = choices [4];
+  var charAmount = choices [0];
+  var allpossiblechars = [];
+
+  if (includeLowercase) {
+    allpossiblechars = allpossiblechars.concat(lowercase);
+    // console.log (allpossiblechars);
   }
- 
+
+  if (includeUppercase) {
+    allpossiblechars = allpossiblechars.concat(uppercase);
+  
+  }
+  if (includeSpecial) {
+    allpossiblechars = allpossiblechars.concat(specialCharacters);
+   
+  }
+  if (includeNumbers) {
+    allpossiblechars = allpossiblechars.concat(numbers);
+    
+  }
+// for loops consists of three parts  the inital (where you name a varaiable, then the CSSConditionRule, then the increment)
+for ( var count = 0; count < charAmount; count++) {
+//next step is to grab a random character from the allpossible chars array 
+var randomNum = Math.random();
+var randomIndex = Math.floor (randomNum * allpossiblechars.length);
+var randomChar = allpossiblechars [randomIndex];
+
+
+password += randomChar;
+}
 return password; 
+
 }
 
 // Assignment Code
@@ -31,7 +67,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   // create a var for the legnth of the combined array, because the charlist is located inside the generatePassword function and cant be used outside of it unless defined in the global area.
   var length =combined.length;
-  var password = generatePassword(length);
+  var password = generatePassword();
   
 
   var passwordText = document.querySelector("#password");  
