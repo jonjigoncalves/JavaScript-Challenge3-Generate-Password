@@ -10,3 +10,4 @@ Below are the steps that i took to generate a random  password for the 03 challe
 
 screenshot  <img src="./assets/capture.jpg" alt="screenshot of password generator" />
 https://github.com/jonjigoncalves/JavaScript-Challenge3-Generate-Password
+https://jonjigoncalves.github.io/JavaScript-Challenge3-Generate-Password/
