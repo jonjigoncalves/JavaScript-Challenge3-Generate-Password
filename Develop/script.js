@@ -12,14 +12,16 @@ var combined = lowercase.concat(uppercase).concat(numbers).concat(specialCharact
 function generatePassword(length){
   var charList = combined
   var password = ''; 
-// for loop to pull random charaters from array
+// for loop to pull random charaters from the combined array created above
+// for loops has 3 parts, the firt is setting a index or count to 0, preventing an infinite loop b using the set index to one less than the length
   for ( var index = 0; index < length; index++ ){
     var randomIndex = Math.floor(Math.random() * charList.length);
     var randomChar = charList[randomIndex];
-
+// is the += to add a value from randomchar (rightside) to the password var that is = to an empty string. so it should keep adding random chars until the index < legnth is proven falsey 
     password += randomChar;
   }
-return password;
+ 
+return password; 
 }
 
 // Assignment Code
@@ -27,10 +29,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // create a var for the legnth,
+  // create a var for the legnth of the combined array, because the charlist is located inside the generatePassword function and cant be used outside of it unless defined in the global area.
   var length =combined.length;
-   var password = generatePassword(length);
-    console.log (password);
+  var password = generatePassword(length);
+  
 
   var passwordText = document.querySelector("#password");  
    passwordText.value = password;
