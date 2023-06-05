@@ -6,3 +6,4 @@ Below are the steps that i took to generate a random  password for the 03 challe
 3. next is the generatePassword section that calls the getUserInput function  which contains the choices from the prompt
 4. create conditional statements to create another array that only conists of the selected characters and concat them
 5. create for loop to select a random character from the array frommthe conditional statments until the loop returns falsey
+6. move html out of the develop folder so that it isnt in a folder
