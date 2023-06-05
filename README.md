@@ -9,3 +9,4 @@ Below are the steps that i took to generate a random  password for the 03 challe
 6. move html out of the develop folder so that it isnt in a folder
 
 screenshot  <img src="./assets/capture.jpg" alt="screenshot of password generator" />
+https://github.com/jonjigoncalves/JavaScript-Challenge3-Generate-Password
