@@ -7,3 +7,5 @@ Below are the steps that i took to generate a random  password for the 03 challe
 4. create conditional statements to create another array that only conists of the selected characters and concat them
 5. create for loop to select a random character from the array frommthe conditional statments until the loop returns falsey
 6. move html out of the develop folder so that it isnt in a folder
+
+screenshot  <img src="./assets/capture.jpg" alt="screenshot of password generator" />
